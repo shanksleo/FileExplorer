@@ -35,7 +35,7 @@ import net.micode.fileexplorer.MediaFile.MediaFileType;
 import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.Iterator;
-
+/*文件分类助手类*/
 public class FileCategoryHelper {
     public static final int COLUMN_ID = 0;
 
@@ -46,7 +46,7 @@ public class FileCategoryHelper {
     public static final int COLUMN_DATE = 3;
 
     private static final String LOG_TAG = "FileCategoryHelper";
-
+    //首先，以枚举的形式定义不同文件类型：
     public enum FileCategory {
         All, Music, Video, Picture, Theme, Doc, Zip, Apk, Custom, Other, Favorite
     }
@@ -243,7 +243,7 @@ public class FileCategoryHelper {
         for (FileCategory fc : sCategories) {
             setCategoryInfo(fc, 0, 0);
         }
-
+         //设置各种文件查询的uri：
         // query database
         String volumeName = "external";
 
