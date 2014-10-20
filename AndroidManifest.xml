@@ -68,7 +68,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".net.micode.fileexplorer.SearchActivity" >
+        <activity android:name="net.micode.fileexplorer.SearchActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.SEARCH" />
 
