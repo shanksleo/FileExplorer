@@ -34,7 +34,7 @@ import android.support.v4.view.ViewPager;
 import android.view.ActionMode;
 
 import java.util.ArrayList;
-
+/*文件管理器Tab管理*/
 public class FileExplorerTabActivity extends Activity {
     private static final String INSTANCESTATE_TAB = "tab";
     private static final int DEFAULT_OFFSCREEN_PAGES = 2;
@@ -72,7 +72,7 @@ public class FileExplorerTabActivity extends Activity {
         editor.putInt(INSTANCESTATE_TAB, getActionBar().getSelectedNavigationIndex());
         editor.commit();
     }
-
+    /*在改变屏幕方向、弹出软件盘和隐藏软键盘时，不再去执行onCreate()方法，而是直接执行onConfigurationChanged()。*/
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         if (getActionBar().getSelectedNavigationIndex() == Util.CATEGORY_TAB_INDEX) {

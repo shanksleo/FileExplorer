@@ -32,6 +32,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+//IBackPressedListener 自定义的是否处理返回时间
+/* public interface FavoriteDatabaseListener {
+        void onFavoriteDatabaseChanged();
+    }
+* */
 
 public class FileCategoryActivity extends Fragment implements IFileInteractionListener,
         FavoriteDatabaseListener, IBackPressedListener {
