@@ -193,6 +193,8 @@
                         <TextView android:id="@+id/category_apk_count"
                             style="@style/CategoryButtonCountTextStyle" />
                     </LinearLayout>
+                    <!--favorite 分类 style（样式资源类类似于css样式）定义在<resources>
+                     标签里 存放在res/values 目录中style.xml 文件中-->
                     <LinearLayout android:id="@+id/category_favorite"
                         style="@style/CategoryButtonStyle"
                         android:background="@drawable/category_button_middle">
