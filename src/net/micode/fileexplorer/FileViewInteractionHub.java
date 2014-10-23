@@ -66,7 +66,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
     private static final String LOG_TAG = "FileViewInteractionHub";
 
     private IFileInteractionListener mFileViewListener;
-
+    //被选中文件的列表
     private ArrayList<FileInfo> mCheckedFileNameList = new ArrayList<FileInfo>();
 
     private FileOperationHelper mFileOperationHelper;
@@ -86,7 +86,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
     private ImageView mNavigationBarUpDownArrow;
 
     private Context mContext;
-
+    //枚举
     public enum Mode {
         View, Pick
     };

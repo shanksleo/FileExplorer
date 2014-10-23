@@ -72,6 +72,7 @@
             android:layout_height="wrap_content"
             android:headerDividersEnabled="true"
             android:footerDividersEnabled="true" android:fastScrollEnabled="true"/>
+        <!--隐藏着，如果没有文件就显示这个-->
         <LinearLayout
             android:id="@+id/empty_view"
             android:orientation="vertical"
@@ -158,7 +159,7 @@
             style="@style/BottomButton.Right"
             android:text="@string/operation_cancel" />
     </LinearLayout>
-
+    <!-- android:visibility="gone" 隐藏空间-->
     <LinearLayout
         android:id="@+id/operation_bar"
         android:layout_width="match_parent"

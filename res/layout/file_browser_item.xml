@@ -82,7 +82,9 @@
 
         </LinearLayout>
     </LinearLayout>
+    <!--“android:textAppearance=“?android:attr/textAppearanceLargeInverse”
 
+这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观。-->
     <FrameLayout
         android:id="@+id/file_checkbox_area"
         android:layout_width="wrap_content"

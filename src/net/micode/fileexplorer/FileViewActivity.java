@@ -149,6 +149,7 @@ public class FileViewActivity extends Fragment implements
 
         mFileListView = (ListView) mRootView.findViewById(R.id.file_path_list);
         mFileIconHelper = new FileIconHelper(mActivity);
+        //Interaction 相互作用（翻译）
         mAdapter = new FileListAdapter(mActivity, R.layout.file_browser_item, mFileNameList, mFileViewInteractionHub,
                 mFileIconHelper);
 
