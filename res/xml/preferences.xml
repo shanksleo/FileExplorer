@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-
+    <!--android:summary在标题文本下面以比较小的文字描述这个-->
+    <!--android:key Sharepreference、所选择的值会根据对应的键进行记录-->
     <PreferenceCategory android:title="@string/preference_title" >
+        <!--
         <EditTextPreference
             android:defaultValue="@string/default_primary_folder"
             android:key="pref_key_primary_folder"
             android:summary="@string/pref_primary_folder_summary"
             android:title="@string/pref_primary_folder" />
-
+            -->
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_key_read_root"

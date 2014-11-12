@@ -34,7 +34,7 @@ public class Settings {
         }
         return mInstance;
     }
-
+    //ShowDot: 显示小数位
     public boolean getShowDotAndHiddenFiles() {
         return mShowDotAndHiddenFiles;
     }

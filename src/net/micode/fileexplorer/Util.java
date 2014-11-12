@@ -44,12 +44,12 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-
+//SD卡
 public class Util {
     private static String ANDROID_SECURE = "/mnt/sdcard/.android_secure";
 
     private static final String LOG_TAG = "Util";
-
+    //检测sd卡是否可用
     public static boolean isSDCardReady() {
         return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
     }
@@ -63,12 +63,13 @@ public class Util {
 
             if (path.equals(GlobalConsts.ROOT_PATH))
                 break;
+            //return this file's parent pathname
             path = new File(path).getParent();
         }
 
         return false;
     }
-
+//    合并路径
     public static String makePath(String path1, String path2) {
         if (path1.endsWith(File.separator))
             return path1 + path2;
@@ -83,7 +84,7 @@ public class Util {
     public static boolean isNormalFile(String fullName) {
         return !fullName.equals(ANDROID_SECURE);
     }
-
+    //获取文件信息
     public static FileInfo GetFileInfo(String filePath) {
         File lFile = new File(filePath);
         if (!lFile.exists())

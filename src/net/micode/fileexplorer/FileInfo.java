@@ -18,7 +18,7 @@
  */
 
 package net.micode.fileexplorer;
-
+//文件详情
 public class FileInfo {
 
     public String fileName;

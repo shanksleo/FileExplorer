@@ -21,9 +21,9 @@ package net.micode.fileexplorer;
 
 import java.util.Comparator;
 import java.util.HashMap;
-
+//文件排序助手
 public class FileSortHelper {
-
+    //按名字，文件大小，日期，类型排序
     public enum SortMethod {
         name, size, date, type
     }
@@ -58,6 +58,7 @@ public class FileSortHelper {
         return mComparatorList.get(mSort);
     }
 
+    //集成Comparator
     private abstract class FileComparator implements Comparator<FileInfo> {
 
         @Override

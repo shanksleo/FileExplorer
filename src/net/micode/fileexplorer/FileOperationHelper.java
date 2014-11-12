@@ -27,7 +27,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-
+//文件操作助手
 public class FileOperationHelper {
     private static final String LOG_TAG = "FileOperation";
 
@@ -245,7 +245,7 @@ public class FileOperationHelper {
 
         Log.v(LOG_TAG, "DeleteFile >>> " + f.filePath);
     }
-
+    //拷贝文件
     private void CopyFile(FileInfo f, String dest) {
         if (f == null || dest == null) {
             Log.e(LOG_TAG, "CopyFile: null parameter");

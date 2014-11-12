@@ -37,7 +37,7 @@ public class ActivitiesManager {
     private ActivitiesManager() {
     }
 
-    // return true indicates successful, false indicates the name exists
+    // return true indicates（指示） successful, false indicates the name exists
     public void registerActivity(String name, Activity a) {
         activities.put(name, a);
     }

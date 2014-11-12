@@ -107,7 +107,8 @@
             <LinearLayout android:id="@+id/category_buttons"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="2">
                 <LinearLayout android:layout_width="wrap_content"
                     android:layout_height="0dip"
                     android:layout_weight="1"
@@ -115,7 +116,9 @@
                     android:layout_gravity="center">
                     <LinearLayout android:id="@+id/category_music"
                         style="@style/CategoryButtonStyle"
-                        android:background="@drawable/category_button_top">
+                        android:background="@drawable/category_button_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                         <ImageView android:src="@drawable/category_icon_music"
                             style="@style/CategoryButtonIconStyle" />
                         <TextView android:text="@string/category_music"
@@ -200,9 +203,9 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-
+            <!--右边那部分 -->
             <!-- category information -->
-            <LinearLayout android:layout_width="0dip" android:layout_weight="1"
+            <LinearLayout android:layout_width="0dip" android:layout_weight="1.83"
                 android:orientation="vertical" android:layout_height="match_parent"
                 android:layout_gravity="right" android:background="@drawable/information_bg"
                 android:paddingTop="5dip">

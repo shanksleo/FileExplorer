@@ -35,6 +35,7 @@ import android.view.ActionMode;
 
 import java.util.ArrayList;
 /*文件管理器Tab管理*/
+//viewPager显示
 public class FileExplorerTabActivity extends Activity {
     private static final String INSTANCESTATE_TAB = "tab";
     private static final int DEFAULT_OFFSCREEN_PAGES = 2;
@@ -45,15 +46,17 @@ public class FileExplorerTabActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+//      fragment_pager，里面只有一个标签viewpager
         setContentView(R.layout.fragment_pager);
+//      获取到了pager 对象
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setOffscreenPageLimit(DEFAULT_OFFSCREEN_PAGES);
-
+//      获取actionbar
         final ActionBar bar = getActionBar();
+//      ActionBar.NAVIGATION_MODE_TABS tab格式的action bar ，还有list 格式的
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_SHOW_HOME);
-
+//      TabAdapter 适配器在最下面。绑定资源
         mTabsAdapter = new TabsAdapter(this, mViewPager);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_category),
                 FileCategoryActivity.class, null);
@@ -61,6 +64,8 @@ public class FileExplorerTabActivity extends Activity {
                 FileViewActivity.class, null);
         mTabsAdapter.addTab(bar.newTab().setText(R.string.tab_remote),
                 ServerControlActivity.class, null);
+//        /获取已经保存的被选中页的索引,且设置ActionBar.
+        // setSelectedNavigationItem()方法会调用onNavigationItemSelected()
         bar.setSelectedNavigationItem(PreferenceManager.getDefaultSharedPreferences(this)
                 .getInt(INSTANCESTATE_TAB, Util.CATEGORY_TAB_INDEX));
     }

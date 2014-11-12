@@ -34,6 +34,7 @@ import android.text.TextUtils;
  *
  * @author ShunLi
  */
+//用途 - 用于监视Shared Preference的变化
 public class FileExplorerPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
     private static final String PRIMARY_FOLDER = "pref_key_primary_folder";
     private static final String READ_ROOT = "pref_key_read_root";
@@ -46,8 +47,8 @@ public class FileExplorerPreferenceActivity extends PreferenceActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
-
-        mEditTextPreference = (EditTextPreference) findPreference(PRIMARY_FOLDER);
+//      EditTextPreference 是布局中 EditTextPreference 的key   10.31 注释
+//        mEditTextPreference = (EditTextPreference) findPreference(PRIMARY_FOLDER);
     }
 
     @Override
@@ -56,12 +57,13 @@ public class FileExplorerPreferenceActivity extends PreferenceActivity implement
 
         // Setup the initial values
         SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
-
-        mEditTextPreference.setSummary(this.getString(
-                R.string.pref_primary_folder_summary,
-                sharedPreferences.getString(PRIMARY_FOLDER, GlobalConsts.ROOT_PATH)));
+//
+//        mEditTextPreference.setSummary(this.getString(
+//                R.string.pref_primary_folder_summary,
+//                sharedPreferences.getString(PRIMARY_FOLDER, GlobalConsts.ROOT_PATH)));
 
         // Set up a listener whenever a key changes
+//        Called when a shared preference is changed, added, or removed.
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
     }
 

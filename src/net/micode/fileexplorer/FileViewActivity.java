@@ -45,7 +45,7 @@ import android.widget.ListView;
 
 import net.micode.fileexplorer.FileExplorerTabActivity.IBackPressedListener;
 import net.micode.fileexplorer.FileViewInteractionHub.Mode;
-
+//文件列表的Fragment
 public class FileViewActivity extends Fragment implements
         IFileInteractionListener, IBackPressedListener {
 
@@ -81,6 +81,7 @@ public class FileViewActivity extends Fragment implements
     // memorize the scroll positions of previous paths
     private ArrayList<PathScrollPositionItem> mScrollPositionList = new ArrayList<PathScrollPositionItem>();
     private String mPreviousPath;
+    //广播处理。当存储卡插入的时候，会触发。
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -88,6 +89,7 @@ public class FileViewActivity extends Fragment implements
             String action = intent.getAction();
             Log.v(LOG_TAG, "received broadcast:" + intent.toString());
             if (action.equals(Intent.ACTION_MEDIA_MOUNTED) || action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
+                //将整个代码块放进线程体，发送给UI线程进行执行。（不是执行一个线程，就是执行里面的内容）
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -102,11 +104,16 @@ public class FileViewActivity extends Fragment implements
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //Return the Activity this fragment is currently associated（发生联系的） with.
         mActivity = getActivity();
         // getWindow().setFormat(android.graphics.PixelFormat.RGBA_8888);
+        //给当前的Fragment填充 layout
         mRootView = inflater.inflate(R.layout.file_explorer_list, container, false);
+        /*ActivitiesManager.getInstance() ，单利模式，获取ActivitiesManager的实例
+        ActivitiesManager.ACTIVITY_FILE_VIEW, mActivity   将这两个参数存放到  一个map 中
+        * */
         ActivitiesManager.getInstance().registerActivity(ActivitiesManager.ACTIVITY_FILE_VIEW, mActivity);
-
+        //文件分类助手
         mFileCagetoryHelper = new FileCategoryHelper(mActivity);
         mFileViewInteractionHub = new FileViewInteractionHub(this);
         Intent intent = mActivity.getIntent();
@@ -184,11 +191,12 @@ public class FileViewActivity extends Fragment implements
 
         mFileListView.setAdapter(mAdapter);
         mFileViewInteractionHub.refreshFileList();
-
+        //注册监听器（当存储卡插入的时候会触发）
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_MEDIA_MOUNTED);
         intentFilter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
         intentFilter.addDataScheme("file");
+
         mActivity.registerReceiver(mReceiver, intentFilter);
 
         updateUI();
@@ -471,7 +479,8 @@ public class FileViewActivity extends Fragment implements
     public int getItemCount() {
         return mFileNameList.size();
     }
-
+    //运行指定的线程在UI线程之上。如果当前线程是UI线程，则立即执行，如果不在UI、
+    // 线程，则发送给ui线程
     @Override
     public void runOnUiThread(Runnable r) {
         mActivity.runOnUiThread(r);

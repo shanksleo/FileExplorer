@@ -90,7 +90,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
     public enum Mode {
         View, Pick
     };
-
+    //文件视图相互作用中心
     public FileViewInteractionHub(IFileInteractionListener fileViewListener) {
         assert (fileViewListener != null);
         mFileViewListener = fileViewListener;
